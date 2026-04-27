@@ -36,6 +36,7 @@ class ProductIndexView extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
                             onTap: () {
+                              print("object : ${product.id}");
                               Navigator.pushNamed(context, Routes.productDetails,arguments: {"id" : product.id});
                             },
                             child: Card(

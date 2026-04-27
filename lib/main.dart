@@ -11,7 +11,7 @@ void main(){
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ProductProvider()..fetchProducts(),),
-        ChangeNotifierProvider(create: (context) => ProductDetailsController()..fetchProductDetails(),),
+        ChangeNotifierProvider(create: (context) => ProductDetailsController()),
       ],
       child: MyApp(),
     )
