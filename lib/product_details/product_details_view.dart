@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:learn_provider/product_details/product_details_controller.dart';
+import 'package:learn_provider/product_details/widgets/action_buttons_widget.dart';
+import 'package:learn_provider/product_details/widgets/image_gallery_widget.dart';
+import 'package:learn_provider/product_details/widgets/meta_widget.dart';
+import 'package:learn_provider/product_details/widgets/policies_widget.dart';
+import 'package:learn_provider/product_details/widgets/product_description_widget.dart';
+import 'package:learn_provider/product_details/widgets/product_header_widget.dart';
+import 'package:learn_provider/product_details/widgets/product_info_widget.dart';
+import 'package:learn_provider/product_details/widgets/reviews_widget.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailsView extends StatelessWidget {
@@ -8,13 +16,12 @@ class ProductDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Step 1: Get productId from route
-    final args      = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final productId = args["id"] ?? 0;
 
     // Step 2: Fetch data once after frame renders
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<ProductDetailsController>(context, listen: false)
-          .fetchProductDetails(id: productId);
+      Provider.of<ProductDetailsController>(context, listen: false).fetchProductDetails(id: productId);
     });
 
     return Consumer<ProductDetailsController>(
@@ -27,15 +34,53 @@ class ProductDetailsView extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.blueAccent,
         ),
-        body: Center(
-          child: controller.isLoading == false 
-              ? Column(
-            children: [
-              Text("${controller.productDetails.description}")
-            ],
-          )
-              : Center(child: CircularProgressIndicator(),),
-        ),
+        body: controller.isLoading == false
+            ? SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    spacing: 10,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ImageGalleryWidget(
+                        images: controller.productDetails.images,
+                        thumbnail: controller.productDetails.thumbnail,
+                      ),
+                      ProductHeaderWidget(
+                        title: controller.productDetails.title,
+                        brand: controller.productDetails.brand,
+                        sku: controller.productDetails.sku,
+                        price: controller.productDetails.price,
+                        discountPercentage: controller.productDetails.discountPercentage,
+                        rating: controller.productDetails.rating,
+                        tags: controller.productDetails.tags,
+                        availabilityStatus: controller.productDetails.availabilityStatus,
+                      ),
+                      ProductDescriptionWidget(description: controller.productDetails.description),
+                      ProductInfoWidget(
+                        category: controller.productDetails.category,
+                        weight: controller.productDetails.weight,
+                        stock: controller.productDetails.stock,
+                        minimumOrderQuantity: controller.productDetails.minimumOrderQuantity,
+                        dimensions: controller.productDetails.dimensions,
+                      ),
+                      PoliciesWidget(
+                        warrantyInformation: controller.productDetails.warrantyInformation,
+                        shippingInformation: controller.productDetails.shippingInformation,
+                        returnPolicy: controller.productDetails.returnPolicy,
+                      ),
+                      MetaWidget(meta: controller.productDetails.meta),
+                      ReviewsWidget(reviews: controller.productDetails.reviews),
+                      const SizedBox(height: 24),
+                      ActionButtonsWidget(
+                        onAddToCart: (){},
+                        onAddToWishlist: (){},
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            : Center(child: CircularProgressIndicator()),
       ),
     );
   }

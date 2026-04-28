@@ -1,27 +1,28 @@
 class ProductDetails {
   ProductDetails({
-      this.id, 
-      this.title, 
-      this.description, 
-      this.category, 
-      this.price, 
-      this.discountPercentage, 
-      this.rating, 
-      this.stock, 
-      this.tags, 
-      this.brand, 
-      this.sku, 
-      this.weight, 
-      this.dimensions, 
-      this.warrantyInformation, 
-      this.shippingInformation, 
-      this.availabilityStatus, 
-      this.reviews, 
-      this.returnPolicy, 
-      this.minimumOrderQuantity, 
-      this.meta, 
-      this.images, 
-      this.thumbnail,});
+    this.id,
+    this.title,
+    this.description,
+    this.category,
+    this.price,
+    this.discountPercentage,
+    this.rating,
+    this.stock,
+    this.tags,
+    this.brand,
+    this.sku,
+    this.weight,
+    this.dimensions,
+    this.warrantyInformation,
+    this.shippingInformation,
+    this.availabilityStatus,
+    this.reviews,
+    this.returnPolicy,
+    this.minimumOrderQuantity,
+    this.meta,
+    this.images,
+    this.thumbnail,
+  });
 
   ProductDetails.fromJson(dynamic json) {
     id = json['id'];
@@ -52,6 +53,7 @@ class ProductDetails {
     images = json['images'] != null ? json['images'].cast<String>() : [];
     thumbnail = json['thumbnail'];
   }
+
   int? id;
   String? title;
   String? description;
@@ -74,51 +76,55 @@ class ProductDetails {
   Meta? meta;
   List<String>? images;
   String? thumbnail;
-ProductDetails copyWith({  int? id,
-  String? title,
-  String? description,
-  String? category,
-  double? price,
-  double? discountPercentage,
-  double? rating,
-  int? stock,
-  List<String>? tags,
-  String? brand,
-  String? sku,
-  int? weight,
-  Dimensions? dimensions,
-  String? warrantyInformation,
-  String? shippingInformation,
-  String? availabilityStatus,
-  List<Reviews>? reviews,
-  String? returnPolicy,
-  int? minimumOrderQuantity,
-  Meta? meta,
-  List<String>? images,
-  String? thumbnail,
-}) => ProductDetails(  id: id ?? this.id,
-  title: title ?? this.title,
-  description: description ?? this.description,
-  category: category ?? this.category,
-  price: price ?? this.price,
-  discountPercentage: discountPercentage ?? this.discountPercentage,
-  rating: rating ?? this.rating,
-  stock: stock ?? this.stock,
-  tags: tags ?? this.tags,
-  brand: brand ?? this.brand,
-  sku: sku ?? this.sku,
-  weight: weight ?? this.weight,
-  dimensions: dimensions ?? this.dimensions,
-  warrantyInformation: warrantyInformation ?? this.warrantyInformation,
-  shippingInformation: shippingInformation ?? this.shippingInformation,
-  availabilityStatus: availabilityStatus ?? this.availabilityStatus,
-  reviews: reviews ?? this.reviews,
-  returnPolicy: returnPolicy ?? this.returnPolicy,
-  minimumOrderQuantity: minimumOrderQuantity ?? this.minimumOrderQuantity,
-  meta: meta ?? this.meta,
-  images: images ?? this.images,
-  thumbnail: thumbnail ?? this.thumbnail,
-);
+
+  ProductDetails copyWith({
+    int? id,
+    String? title,
+    String? description,
+    String? category,
+    double? price,
+    double? discountPercentage,
+    double? rating,
+    int? stock,
+    List<String>? tags,
+    String? brand,
+    String? sku,
+    int? weight,
+    Dimensions? dimensions,
+    String? warrantyInformation,
+    String? shippingInformation,
+    String? availabilityStatus,
+    List<Reviews>? reviews,
+    String? returnPolicy,
+    int? minimumOrderQuantity,
+    Meta? meta,
+    List<String>? images,
+    String? thumbnail,
+  }) => ProductDetails(
+    id: id ?? this.id,
+    title: title ?? this.title,
+    description: description ?? this.description,
+    category: category ?? this.category,
+    price: price ?? this.price,
+    discountPercentage: discountPercentage ?? this.discountPercentage,
+    rating: rating ?? this.rating,
+    stock: stock ?? this.stock,
+    tags: tags ?? this.tags,
+    brand: brand ?? this.brand,
+    sku: sku ?? this.sku,
+    weight: weight ?? this.weight,
+    dimensions: dimensions ?? this.dimensions,
+    warrantyInformation: warrantyInformation ?? this.warrantyInformation,
+    shippingInformation: shippingInformation ?? this.shippingInformation,
+    availabilityStatus: availabilityStatus ?? this.availabilityStatus,
+    reviews: reviews ?? this.reviews,
+    returnPolicy: returnPolicy ?? this.returnPolicy,
+    minimumOrderQuantity: minimumOrderQuantity ?? this.minimumOrderQuantity,
+    meta: meta ?? this.meta,
+    images: images ?? this.images,
+    thumbnail: thumbnail ?? this.thumbnail,
+  );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
@@ -151,15 +157,10 @@ ProductDetails copyWith({  int? id,
     map['thumbnail'] = thumbnail;
     return map;
   }
-
 }
 
 class Meta {
-  Meta({
-      this.createdAt, 
-      this.updatedAt, 
-      this.barcode, 
-      this.qrCode,});
+  Meta({this.createdAt, this.updatedAt, this.barcode, this.qrCode});
 
   Meta.fromJson(dynamic json) {
     createdAt = json['createdAt'];
@@ -167,19 +168,19 @@ class Meta {
     barcode = json['barcode'];
     qrCode = json['qrCode'];
   }
+
   String? createdAt;
   String? updatedAt;
   String? barcode;
   String? qrCode;
-Meta copyWith({  String? createdAt,
-  String? updatedAt,
-  String? barcode,
-  String? qrCode,
-}) => Meta(  createdAt: createdAt ?? this.createdAt,
-  updatedAt: updatedAt ?? this.updatedAt,
-  barcode: barcode ?? this.barcode,
-  qrCode: qrCode ?? this.qrCode,
-);
+
+  Meta copyWith({String? createdAt, String? updatedAt, String? barcode, String? qrCode}) => Meta(
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    barcode: barcode ?? this.barcode,
+    qrCode: qrCode ?? this.qrCode,
+  );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['createdAt'] = createdAt;
@@ -188,16 +189,10 @@ Meta copyWith({  String? createdAt,
     map['qrCode'] = qrCode;
     return map;
   }
-
 }
 
 class Reviews {
-  Reviews({
-      this.rating, 
-      this.comment, 
-      this.date, 
-      this.reviewerName, 
-      this.reviewerEmail,});
+  Reviews({this.rating, this.comment, this.date, this.reviewerName, this.reviewerEmail});
 
   Reviews.fromJson(dynamic json) {
     rating = json['rating'];
@@ -206,22 +201,22 @@ class Reviews {
     reviewerName = json['reviewerName'];
     reviewerEmail = json['reviewerEmail'];
   }
+
   int? rating;
   String? comment;
   String? date;
   String? reviewerName;
   String? reviewerEmail;
-Reviews copyWith({  int? rating,
-  String? comment,
-  String? date,
-  String? reviewerName,
-  String? reviewerEmail,
-}) => Reviews(  rating: rating ?? this.rating,
-  comment: comment ?? this.comment,
-  date: date ?? this.date,
-  reviewerName: reviewerName ?? this.reviewerName,
-  reviewerEmail: reviewerEmail ?? this.reviewerEmail,
-);
+
+  Reviews copyWith({int? rating, String? comment, String? date, String? reviewerName, String? reviewerEmail}) =>
+      Reviews(
+        rating: rating ?? this.rating,
+        comment: comment ?? this.comment,
+        date: date ?? this.date,
+        reviewerName: reviewerName ?? this.reviewerName,
+        reviewerEmail: reviewerEmail ?? this.reviewerEmail,
+      );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['rating'] = rating;
@@ -231,30 +226,24 @@ Reviews copyWith({  int? rating,
     map['reviewerEmail'] = reviewerEmail;
     return map;
   }
-
 }
 
 class Dimensions {
-  Dimensions({
-      this.width, 
-      this.height, 
-      this.depth,});
+  Dimensions({this.width, this.height, this.depth});
 
   Dimensions.fromJson(dynamic json) {
     width = json['width'];
     height = json['height'];
     depth = json['depth'];
   }
+
   double? width;
   double? height;
   double? depth;
-Dimensions copyWith({  double? width,
-  double? height,
-  double? depth,
-}) => Dimensions(  width: width ?? this.width,
-  height: height ?? this.height,
-  depth: depth ?? this.depth,
-);
+
+  Dimensions copyWith({double? width, double? height, double? depth}) =>
+      Dimensions(width: width ?? this.width, height: height ?? this.height, depth: depth ?? this.depth);
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['width'] = width;
@@ -262,5 +251,4 @@ Dimensions copyWith({  double? width,
     map['depth'] = depth;
     return map;
   }
-
 }

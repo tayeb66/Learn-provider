@@ -6,15 +6,15 @@ import 'package:learn_provider/product_index/product_index_provider.dart';
 import 'package:learn_provider/product_index/product_index_view.dart';
 import 'package:provider/provider.dart';
 
-void main(){
+void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => ProductProvider()..fetchProducts(),),
+        ChangeNotifierProvider(create: (context) => ProductProvider()..fetchProducts()),
         ChangeNotifierProvider(create: (context) => ProductDetailsController()),
       ],
       child: MyApp(),
-    )
+    ),
   );
 }
 
@@ -27,10 +27,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.productIndex,
       routes: {
-        Routes.productIndex : (context) => ProductIndexView(),
-        Routes.productDetails : (context) => ProductDetailsView(),
+        Routes.productIndex: (context) => ProductIndexView(),
+        Routes.productDetails: (context) => ProductDetailsView(),
       },
     );
   }
 }
-

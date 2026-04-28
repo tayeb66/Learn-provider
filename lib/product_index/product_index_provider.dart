@@ -9,17 +9,19 @@ class ProductProvider extends ChangeNotifier {
   String? _errorMessage;
 
   List<Products> get productList => _productList;
+
   bool get isLoading => _isLoading;
+
   String? get errorMessage => _errorMessage;
 
-  Future<void> fetchProducts() async{
+  Future<void> fetchProducts() async {
     _isLoading = true;
     notifyListeners();
 
-    try{
+    try {
       final response = await _dio.get("https://dummyjson.com/products");
 
-      if(response.statusCode == 200){
+      if (response.statusCode == 200) {
         try {
           final List<dynamic> products = response.data["products"];
           _productList = products.map((e) => Products.fromJson(e)).toList();
@@ -29,12 +31,11 @@ class ProductProvider extends ChangeNotifier {
           }
         }
       }
-
-    }on DioException catch (e){
+    } on DioException catch (e) {
       _errorMessage = e.message ?? "An unexpected error occurred";
-    }catch(e){
+    } catch (e) {
       _errorMessage = e.toString();
-    }finally{
+    } finally {
       _isLoading = false;
       notifyListeners();
     }
