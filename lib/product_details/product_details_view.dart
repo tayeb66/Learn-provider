@@ -73,7 +73,9 @@ class ProductDetailsView extends StatelessWidget {
                       ReviewsWidget(reviews: controller.productDetails.reviews),
                       const SizedBox(height: 24),
                       ActionButtonsWidget(
-                        onAddToCart: (){},
+                        onAddToCart: (){
+
+                        },
                         onAddToWishlist: (){},
                       ),
                     ],
