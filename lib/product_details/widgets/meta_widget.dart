@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_provider/product_details/product_details.dart';
+import 'package:learn_provider/product_details/product_details_model.dart';
 
 class MetaWidget extends StatelessWidget {
   final Meta? meta;

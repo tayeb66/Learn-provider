@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_provider/product_details/product_details.dart';
+import 'package:learn_provider/product_details/product_details_model.dart';
 
 class ReviewsWidget extends StatelessWidget {
   final List<Reviews>? reviews;

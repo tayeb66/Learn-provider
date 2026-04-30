@@ -196,6 +196,17 @@ class Products {
     map['thumbnail'] = thumbnail;
     return map;
   }
+
+  double get discountedPrice {
+    if (price == null) return 0;
+    if (discountPercentage == null || discountPercentage == 0) return price!;
+    return price! * (1 - discountPercentage! / 100);
+  }
+
+  bool get isInStock =>
+      availabilityStatus?.toLowerCase() == 'in stock' && (stock ?? 0) > 0;
+
+  bool get isLowStock => isInStock && (stock ?? 0) <= 10;
 }
 
 class Meta {

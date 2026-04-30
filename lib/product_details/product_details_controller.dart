@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:learn_provider/product_details/product_details.dart';
+import 'package:learn_provider/product_details/product_details_model.dart';
 
 class ProductDetailsController extends ChangeNotifier {
   bool _isLoading = false;
