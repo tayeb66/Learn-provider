@@ -72,7 +72,7 @@ class _SliderCard extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: product.thumbnail ?? '',
               fit: BoxFit.cover,
-              errorWidget: (_, __, ___) => Container(
+              errorWidget: (_, _, _) => Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: colors,
@@ -147,10 +147,10 @@ class _SliderCard extends StatelessWidget {
                       vertical: 6,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.5),
+                        color: Colors.white.withValues(alpha: 0.5),
                       ),
                     ),
                     child: const Text(

@@ -45,10 +45,8 @@ class ProductHomePageController extends ChangeNotifier {
           final Set<String> cats = {'All'};
           for (final p in _allProducts) {
             if (p.category != null) cats.add(_capitalize(p.category!));
-            print("cats : $cats");
           }
           _categories = cats.toList();
-          print("_categories : $_categories");
 
         } catch (e) {
           if (kDebugMode) {
