@@ -3,6 +3,7 @@ import 'package:learn_provider/product_home_page/product_index_controller.dart';
 import 'package:learn_provider/product_home_page/widgets/category_chips.dart';
 import 'package:learn_provider/product_home_page/widgets/product_grid.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
 
 import 'widgets/home_page_image_slider.dart';
 
@@ -15,7 +16,15 @@ class ProductIndexView extends StatelessWidget {
       return Scaffold(
         body: Center(
           child: controller.isLoading
-              ? const Center(child: CircularProgressIndicator())
+              ? SizedBox(
+            width: 200.0,
+            height: 100.0,
+            child: Shimmer.fromColors(
+              baseColor: Colors.red,
+              highlightColor: Colors.yellow,
+              child: Center(child: Icon(Icons.front_loader)),
+            ),
+          )
               : CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -150,7 +159,7 @@ class ProductIndexView extends StatelessWidget {
                         const SizedBox(height: 16),
                         GestureDetector(
                           onTap: () =>
-                              context.read<ProductHomePageController>().fetchProducts(),
+                              controller.fetchProducts(),
                           child: Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 24,

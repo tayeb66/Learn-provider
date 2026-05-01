@@ -48,6 +48,7 @@ class ProductHomePageController extends ChangeNotifier {
           }
           _categories = cats.toList();
 
+
         } catch (e) {
           if (kDebugMode) {
             print("Mapping failed: $e");
@@ -102,6 +103,14 @@ class ProductHomePageController extends ChangeNotifier {
 
   bool isWishlisted(int productId) => _wishlist.contains(productId);
 
-  String _capitalize(String s) =>
-      s.isEmpty ? s : s[0].toUpperCase();
+  String _capitalize(String s) {
+    String category = "";
+    Set<dynamic> cats = {};
+    cats.add(s);
+    for(var element in cats){
+      category = element;
+    }
+    //s.isEmpty ? s : s.toUpperCase();
+    return category;
+  }
 }
